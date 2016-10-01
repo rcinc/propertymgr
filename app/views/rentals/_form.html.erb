@@ -1,0 +1,57 @@
+<%= form_for(@rental) do |f| %>
+  <% if @rental.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rental.errors.count, "error") %> prohibited this rental from being saved:</h2>
+
+      <ul>
+      <% @rental.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :address %><br>
+    <%= f.text_field :address, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Rent Amount" %><br>
+    <%= f.text_field :rentamount, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Deposit Amount" %><br>
+    <%= f.text_field :depositamount, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Tenant Names"%><br>
+    <%= f.text_area :tenantnames, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Tenant Number" %><br>
+    <%= f.text_area :tenantnumbers, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Lease Start Date" %><br>
+    <%= f.date_select :leasestartdate, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Lease End Date" %><br>
+    <%= f.date_select :leaseenddate, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Marketing Plan" %><br>
+    <%= f.text_area :marketing, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Check box if Vacant" %><br>
+    <%= f.check_box :vacant, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

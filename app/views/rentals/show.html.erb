@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+<h3 class="center">Details for <%=@rental.address%> rental</h3>
+<br>
+<br>
+<div class="container">
+<p>
+  <strong>Address:</strong><br><br>
+  <%= @rental.address %>
+</p>
+
+<p>
+  <strong>Rent Amount:</strong><br><br>
+  <%= number_to_currency(@rental.rentamount) %>
+</p>
+
+<p>
+  <strong>Deposit Amount:</strong><br><br>
+  <%= number_to_currency(@rental.depositamount) %>
+</p>
+
+<p>
+  <strong>Tenant Names:</strong><br><br>
+  <%= @rental.tenantnames %>
+</p>
+
+<p>
+  <strong>Tenant numbers:</strong><br><br>
+  <%= @rental.tenantnumbers %>
+</p>
+
+<p>
+  <strong>Lease start date:</strong><br>
+  <%= @rental.leasestartdate.strftime("%m/%d/%Y")  %>
+</p>
+
+<p>
+  <strong>Lease end date:</strong><br>
+  <%= @rental.leaseenddate.strftime("%m/%d/%Y")  %>
+</p>
+
+<p>
+  <strong>Marketing:</strong><br><br>
+  <%= @rental.marketing %>
+</p>
+
+<p>
+  <strong>Notes:</strong><br><br>
+  <%= @rental.notes %>
+</p>
+
+<p>
+  <strong>Vacant:</strong><br>
+ <% if @rental.vacant%>
+    <%= 'Yes' %>
+      <% else %>
+      <%= 'No' %>
+      <% end %>
+
+</p>
+
+
+
+<%= link_to 'Edit', edit_rental_path(@rental) %> |
+<%= link_to 'Back', rentals_path %> |
+<%= link_to 'Destroy', @rental, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>

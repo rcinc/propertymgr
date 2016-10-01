@@ -1,0 +1,27 @@
+<h1 class="center">Vacancies</h1>
+<br>
+<br>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Address</th>
+      <th>Rental amount</th>
+      <th>Notes</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+      <% @rentals.each do |r| %>
+        <% if r.vacant == true %>
+        <tr>
+        <td><%= link_to r.address, r %></td>
+        <td><%= number_to_currency(r.rentamount) %></td>
+        <td><%= r.notes %></td>
+      </tr>
+            <% end %>
+        <% end %>
+    </tbody>
+</table>
