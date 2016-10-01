@@ -17,6 +17,7 @@
 
   <tbody>
     <% @rentals.each do |rental| %>
+    <% if !rental.vacant %>
       <tr>
         <td><%= link_to rental.address, rental %></td>
         <td><%= number_to_currency(rental.rentamount) %></td>
